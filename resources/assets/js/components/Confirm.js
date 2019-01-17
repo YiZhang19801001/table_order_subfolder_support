@@ -64,8 +64,8 @@ export default class Confirm extends Component {
         qr = qr + "0" + ";";
         el.item.choices.forEach(choice => {
           if (choice.pickedChoice !== null) {
-            choice.pickedChoice.forEach(el => {
-              qr = qr + el.barcode + "," + el.quantity + "," + 0 + ";";
+            choice.pickedChoice.forEach(ele => {
+              qr = qr + ele.barcode + "," + el.quantity + "," + 0 + ";";
             });
           }
         });

@@ -71881,8 +71881,8 @@ var Confirm = function (_Component) {
           qr = qr + "0" + ";";
           el.item.choices.forEach(function (choice) {
             if (choice.pickedChoice !== null) {
-              choice.pickedChoice.forEach(function (el) {
-                qr = qr + el.barcode + "," + el.quantity + "," + 0 + ";";
+              choice.pickedChoice.forEach(function (ele) {
+                qr = qr + ele.barcode + "," + el.quantity + "," + 0 + ";";
               });
             }
           });
