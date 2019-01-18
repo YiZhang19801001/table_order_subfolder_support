@@ -89,6 +89,7 @@ export default class Order extends Component {
               ? this.props.app_conf.lang_switch_en
               : this.props.app_conf.lang_switch_cn
           }
+          isShowLanguageSwitchButton={this.props.app_conf.countLanguage != "1"}
           originPath={`${this.props.location.pathname}${
             this.props.location.search
           }`}

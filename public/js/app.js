@@ -30835,7 +30835,7 @@ var Head = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "div",
           { className: "right" },
-          this.props.mode !== "menu" ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          this.props.mode !== "menu" && this.props.isShowLanguageSwitchButton ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "span",
             { className: "button", onClick: this.changeLanguage },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -69276,6 +69276,7 @@ var Order = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Head__["a" /* default */], {
           title: this.props.mode === "preorder" ? this.props.app_conf.preorder_title : this.props.app_conf.app_header_title + " " + this.props.match.params.table,
           btnLabel: localStorage.getItem("aupos_language_code") === "1" ? this.props.app_conf.lang_switch_en : this.props.app_conf.lang_switch_cn,
+          isShowLanguageSwitchButton: this.props.app_conf.countLanguage != "1",
           originPath: "" + this.props.location.pathname + this.props.location.search,
           mode: this.props.mode
         }),

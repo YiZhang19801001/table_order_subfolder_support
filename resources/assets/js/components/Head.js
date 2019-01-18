@@ -53,7 +53,8 @@ export default class Head extends Component {
       <div className="head">
         <div className="left">{this.props.title}</div>
         <div className="right">
-          {this.props.mode !== "menu" ? (
+          {this.props.mode !== "menu" &&
+          this.props.isShowLanguageSwitchButton ? (
             <span className="button" onClick={this.changeLanguage}>
               <span className="label">{this.props.btnLabel}</span>
             </span>
