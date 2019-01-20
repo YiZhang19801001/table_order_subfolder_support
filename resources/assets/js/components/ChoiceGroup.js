@@ -97,9 +97,9 @@ export default class ChoiceGroup extends Component {
                     <span
                       className={this.state.choiceClass.checkMark}
                       style={{
-                        backgroundImage: `url("/table/public/images/items/${
-                          choice.image
-                        }")`
+                        backgroundImage: `url("/${
+                          this.props.app_conf.sub_folder
+                        }/public/images/items/${choice.image}")`
                       }}
                     />
                     <div className={this.state.choiceClass.iconCover} />

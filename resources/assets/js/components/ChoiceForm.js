@@ -76,7 +76,9 @@ export default class ChoiceForm extends Component {
   }
 
   render() {
-    const imgSrc = `/table/public/images/items/${this.state.product.image}`;
+    const imgSrc = `/${this.props.app_conf.sub_folder}/public/images/items/${
+      this.state.product.image
+    }`;
     return (
       <div>
         <div

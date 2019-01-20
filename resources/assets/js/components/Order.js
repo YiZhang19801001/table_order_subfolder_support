@@ -22,9 +22,9 @@ export default class Order extends Component {
 
   componentDidMount() {
     Axios.get(
-      `/table/public/api/products/${localStorage.getItem(
-        "aupos_language_code"
-      )}`
+      `/${
+        this.props.app_conf.sub_folder
+      }/public/api/products/${localStorage.getItem("aupos_language_code")}`
     ).then(res => {
       this.setState({
         productGroupList: res.data.products
@@ -32,9 +32,9 @@ export default class Order extends Component {
     });
 
     Axios.get(
-      `/table/public/api/categories/${localStorage.getItem(
-        "aupos_language_code"
-      )}`
+      `/${
+        this.props.app_conf.sub_folder
+      }/public/api/categories/${localStorage.getItem("aupos_language_code")}`
     ).then(res => {
       this.setState({
         categoryList: res.data.categories
@@ -68,7 +68,9 @@ export default class Order extends Component {
   }
 
   redirectToMenu(msg) {
-    this.props.history.push(`/table/public/menu/${msg}`);
+    this.props.history.push(
+      `/${this.props.app_conf.sub_folder}/public/menu/${msg}`
+    );
   }
 
   render() {

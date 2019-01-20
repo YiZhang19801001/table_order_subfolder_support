@@ -33,11 +33,11 @@ class testController extends Controller
         /**return to client side */
         return response()->json(['message' => 'theme changed to ' . $mode . ' !'], 200);
     }
-	
-	public function changeText(Request $request)
+
+    public function changeText(Request $request)
     {
-        $path_cn = "/home1/ozwearug/public_html/kidsnpartycom/table/config/language_cn.php";
-        $path_en = "/home1/ozwearug/public_html/kidsnpartycom/table/config/language_en.php";
+        $path_cn = '/home1/ozwearug/public_html/kidsnpartycom/' . \Config::get('app.sub_folder') . '/config/language_cn.php';
+        $path_en = '/home1/ozwearug/public_html/kidsnpartycom/' . \Config::get('app.sub_folder') . '/config/language_en.php';
         //var_export($bool, true) how to read boolean as boolean
         file_put_contents(
             $path_cn, str_replace(

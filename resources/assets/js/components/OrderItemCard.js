@@ -82,7 +82,7 @@ export default class OrderItemCard extends Component {
         {this.props.mode !== 3 ? (
           <div className="order-item-card__img-container">
             <img
-              src={`/table/public/images/items/${
+              src={`/${this.props.app_conf.sub_folder}/public/images/items/${
                 this.state.orderItem.item.image
               }`}
               alt=""

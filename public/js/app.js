@@ -8323,7 +8323,7 @@ var OrderItemCard = function (_Component) {
           "div",
           { className: "order-item-card__img-container" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-            src: "/table/public/images/items/" + this.state.orderItem.item.image,
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/items/" + this.state.orderItem.item.image,
             alt: ""
           })
         ) : null,
@@ -30811,7 +30811,7 @@ var Head = function (_Component) {
         }
 
         if (localStorage.getItem("preorderList") && localStorage.getItem("preorderList").length > 0) {
-          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/table/public/api/translate", {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/" + this.props.app_conf.sub_folder + "/public/api/translate", {
             orderList: JSON.parse(localStorage.getItem("preorderList")),
             lang: localStorage.getItem("aupos_language_code")
           }).then(function (res) {
@@ -31354,7 +31354,7 @@ var App = function (_Component) {
         var date = "" + today.getFullYear() + (today.getMonth() + 1) + today.getDate();
         localStorage.setItem("aupos_time_stamp", date);
       } else if (mode === "table" && isCallApi === true) {
-        __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/table/public/api/updateorderlist", {
+        __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/" + this.state.app_conf.sub_folder + "/public/api/updateorderlist", {
           action: action,
           orderItem: item,
           userId: this.state.userId,
@@ -31376,7 +31376,7 @@ var App = function (_Component) {
           null,
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/preorder",
+            path: "/" + this.state.app_conf.sub_folder + "/public/preorder",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Order__["a" /* default */], _extends({
                 updateShoppingCartList: _this3.updateShoppingCartList,
@@ -31393,7 +31393,7 @@ var App = function (_Component) {
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/table/:table/orderid/:orderid",
+            path: "/" + this.state.app_conf.sub_folder + "/public/table/:table/orderid/:orderid",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Order__["a" /* default */], _extends({
                 updateShoppingCartList: _this3.updateShoppingCartList,
@@ -31418,7 +31418,7 @@ var App = function (_Component) {
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/confirm/:mode",
+            path: "/" + this.state.app_conf.sub_folder + "/public/confirm/:mode",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Confirm__["a" /* default */], _extends({
                 shoppingCartList: _this3.state.shoppingCartList,
@@ -31431,7 +31431,7 @@ var App = function (_Component) {
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/confirm/:mode/:tableId/:orderId",
+            path: "/" + this.state.app_conf.sub_folder + "/public/confirm/:mode/:tableId/:orderId",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Confirm__["a" /* default */], _extends({
                 shoppingCartList: _this3.state.shoppingCartList,
@@ -31447,7 +31447,7 @@ var App = function (_Component) {
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/complete/:tableId/:orderId",
+            path: "/" + this.state.app_conf.sub_folder + "/public/complete/:tableId/:orderId",
             render: function render(props) {
               var _extends2;
 
@@ -31465,21 +31465,21 @@ var App = function (_Component) {
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/mysql",
+            path: "/" + this.state.app_conf.sub_folder + "/public/mysql",
             render: function render(props) {
-              return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_MySql__["a" /* default */], props);
+              return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_MySql__["a" /* default */], _extends({}, props, { app_conf: _this3.state.app_conf }));
             }
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/mycon",
+            path: "/" + this.state.app_conf.sub_folder + "/public/mycon",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_Setting__["a" /* default */], _extends({ app_conf: _this3.state.app_conf }, props));
             }
           }),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], {
             exact: true,
-            path: "/table/public/menu/:message",
+            path: "/" + this.state.app_conf.sub_folder + "/public/menu/:message",
             render: function render(props) {
               return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Menu__["a" /* default */], _extends({ app_conf: _this3.state.app_conf }, props));
             }
@@ -69222,13 +69222,13 @@ var Order = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/table/public/api/products/" + localStorage.getItem("aupos_language_code")).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/" + this.props.app_conf.sub_folder + "/public/api/products/" + localStorage.getItem("aupos_language_code")).then(function (res) {
         _this2.setState({
           productGroupList: res.data.products
         });
       });
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/table/public/api/categories/" + localStorage.getItem("aupos_language_code")).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/" + this.props.app_conf.sub_folder + "/public/api/categories/" + localStorage.getItem("aupos_language_code")).then(function (res) {
         _this2.setState({
           categoryList: res.data.categories
         });
@@ -69261,7 +69261,7 @@ var Order = function (_Component) {
   }, {
     key: "redirectToMenu",
     value: function redirectToMenu(msg) {
-      this.props.history.push("/table/public/menu/" + msg);
+      this.props.history.push("/" + this.props.app_conf.sub_folder + "/public/menu/" + msg);
     }
   }, {
     key: "render",
@@ -70904,11 +70904,11 @@ var ProductCard = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.setState({
-        btnPlus: "/table/public/images/layout/btn_plus_red.png"
+        btnPlus: "/" + this.props.app_conf.sub_folder + "/public/images/layout/btn_plus_red.png"
       });
 
       var flag = this.props.product.choices.length > 0 || this.props.product.options.length > 0;
-      var buttonImg = flag ? "/table/public/images/layout/btn_sub_grey.png" : "/table/public/images/layout/btn_sub_red.png";
+      var buttonImg = flag ? "/" + this.props.app_conf.sub_folder + "/public/images/layout/btn_sub_grey.png" : "/" + this.props.app_conf.sub_folder + "/public/images/layout/btn_sub_red.png";
 
       this.setState({ btnSub: buttonImg });
       if (this.props.mode !== "menu") {
@@ -71020,7 +71020,7 @@ var ProductCard = function (_Component) {
             className: this.state.isZoomInPic ? "img-xl-container" : "img-container"
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-            src: "/table/public/images/items/" + this.props.product.image,
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/items/" + this.props.product.image,
             alt: this.props.product.name
           })
         ),
@@ -71175,7 +71175,7 @@ var ChoiceForm = function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      var imgSrc = "/table/public/images/items/" + this.state.product.image;
+      var imgSrc = "/" + this.props.app_conf.sub_folder + "/public/images/items/" + this.state.product.image;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "div",
         null,
@@ -71406,7 +71406,7 @@ var ChoiceGroup = function (_Component) {
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
                     className: _this2.state.choiceClass.checkMark,
                     style: {
-                      backgroundImage: "url(\"/table/public/images/items/" + choice.image + "\")"
+                      backgroundImage: "url(\"/" + _this2.props.app_conf.sub_folder + "/public/images/items/" + choice.image + "\")"
                     }
                   }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: _this2.state.choiceClass.iconCover })
@@ -71509,7 +71509,7 @@ var ShoppingCart = function (_Component) {
       var _this2 = this;
 
       this.setState({
-        shoppingCartIconImage: "/table/public/images/layout/shopping_cart_icon.png",
+        shoppingCartIconImage: "/" + this.props.app_conf.sub_folder + "/public/images/layout/shopping_cart_icon.png",
         shoppingCartList: this.props.shoppingCartList
       });
 
@@ -71522,7 +71522,7 @@ var ShoppingCart = function (_Component) {
           this.props.updateOrderList(JSON.parse(localStorage.getItem("preorderList")));
         }
       } else if (this.props.mode === "table") {
-        __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post("/table/public/api/initcart", {
+        __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post("/" + this.props.app_conf.sub_folder + "/public/api/initcart", {
           order_id: this.props.orderId,
           cdt: this.props.cdt,
           v: this.props.v,
@@ -71540,7 +71540,7 @@ var ShoppingCart = function (_Component) {
         Echo.channel("tableOrder").listen("UpdateOrder", function (e) {
           if (e.orderId == _this2.props.orderId && e.userId !== _this2.props.userId) {
             if (e.action == "update") {
-              __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post("/table/public/api/initcart", {
+              __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post("/" + _this2.props.app_conf.sub_folder + "/public/api/initcart", {
                 order_id: _this2.props.orderId,
                 cdt: _this2.props.cdt,
                 v: _this2.props.v,
@@ -71699,7 +71699,10 @@ var ShoppingCart = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "div",
               { className: "order-confirm-icon" },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/table/public/images/layout/error.png", alt: "" }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+                src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/error.png",
+                alt: ""
+              }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "span",
                 { className: "order-confirm-title" },
@@ -71775,7 +71778,7 @@ var ShoppingCart = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
               {
-                to: this.props.mode === "preorder" ? "/table/public/confirm/" + this.props.mode : "/table/public/confirm/" + this.props.mode + "/" + this.props.tableNumber + "/" + this.props.orderId,
+                to: this.props.mode === "preorder" ? "/" + this.props.app_conf.sub_folder + "/public/confirm/" + this.props.mode : "/" + this.props.app_conf.sub_folder + "/public/confirm/" + this.props.mode + "/" + this.props.tableNumber + "/" + this.props.orderId,
                 className: "order-item-card__confirm-button"
               },
               this.props.app_conf.confirm_order
@@ -71915,7 +71918,7 @@ var Confirm = function (_Component) {
     value: function confirmOrder() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/table/public/api/confirm", {
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post("/" + this.props.app_conf.sub_folder + "/public/api/confirm", {
         orderList: this.state.shoppingCartList,
         order_id: this.props.match.params.orderId,
         store_id: "4",
@@ -71931,7 +71934,7 @@ var Confirm = function (_Component) {
 
         // todo:: set it to app.state
         _this2.props.updateHistoryCartList(res.data.historyList);
-        _this2.props.history.push("/table/public/complete/" + _this2.props.match.params.tableId + "/" + _this2.props.match.params.orderId);
+        _this2.props.history.push("/" + _this2.props.app_conf.sub_folder + "/public/complete/" + _this2.props.match.params.tableId + "/" + _this2.props.match.params.orderId);
       }).catch(function (err) {
         alert(err.reponse.data);
       });
@@ -71974,7 +71977,10 @@ var Confirm = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "div",
               { className: "order-confirm-icon" },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/table/public/images/layout/error.png", alt: "" }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+                src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/error.png",
+                alt: ""
+              }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "span",
                 { className: "order-confirm-title" },
@@ -72010,7 +72016,10 @@ var Confirm = function (_Component) {
         this.props.match.params.mode === "preorder" ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "div",
           { className: "confirm__title" },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/table/public/images/layout/icon_confirm.png", alt: "" }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/icon_confirm.png",
+            alt: ""
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "span",
             { className: "confirm__title-text" },
@@ -72076,7 +72085,7 @@ var Confirm = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
               {
-                to: this.props.mode === "preorder" ? "/table/public/preorder" : this.props.originPath,
+                to: this.props.mode === "preorder" ? "/" + this.props.app_conf.sub_folder + "/public/preorder" : this.props.originPath,
                 className: "confirm__back-button"
               },
               this.props.app_conf.continue_order
@@ -73419,7 +73428,10 @@ var Menu = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "div",
             { className: "menu-error-icon" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/table/public/images/layout/error.png", alt: "" }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+              src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/error.png",
+              alt: ""
+            }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "span",
               { className: "menu-error-title" },
@@ -73487,7 +73499,7 @@ var Complete = function (_Component) {
       Echo.channel("tableOrder").listen("ConfirmOrder", function (e) {
         console.log("listened");
         if (e.orderId == _this2.props.orderId) {
-          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/table/public/api/initcart", {
+          __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/" + _this2.props.app_conf.sub_folder + "/public/api/initcart", {
             order_id: _this2.props.orderId,
             cdt: _this2.props.cdt,
             v: _this2.props.v,
@@ -73525,7 +73537,7 @@ var Complete = function (_Component) {
           { className: "complete__icon-container" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
             onClick: this.backToOrder,
-            src: "/table/public/images/layout/complete_icon.png",
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/complete_icon.png",
             alt: "done"
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -73595,148 +73607,172 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var MySql = function (_Component) {
-    _inherits(MySql, _Component);
+  _inherits(MySql, _Component);
 
-    function MySql(props) {
-        _classCallCheck(this, MySql);
+  function MySql(props) {
+    _classCallCheck(this, MySql);
 
-        var _this = _possibleConstructorReturn(this, (MySql.__proto__ || Object.getPrototypeOf(MySql)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MySql.__proto__ || Object.getPrototypeOf(MySql)).call(this, props));
 
-        _this.state = { password: '', type: 'select', statement: '', result: null };
+    _this.state = { password: "", type: "select", statement: "", result: null };
 
-        _this.applyQuery = _this.applyQuery.bind(_this);
-        _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
-        _this.handleTypeChange = _this.handleTypeChange.bind(_this);
-        _this.handleStatementChange = _this.handleStatementChange.bind(_this);
-        return _this;
+    _this.applyQuery = _this.applyQuery.bind(_this);
+    _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
+    _this.handleTypeChange = _this.handleTypeChange.bind(_this);
+    _this.handleStatementChange = _this.handleStatementChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(MySql, [{
+    key: "applyQuery",
+    value: function applyQuery() {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/" + this.props.app_conf.sub_folder + "/public/api/mysql", {
+        password: this.state.password,
+        type: this.state.type,
+        statement: this.state.statement
+      }).then(function (res) {
+        // this.setState({ result: res.data.data });
+
+        var result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "result" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "result-content" },
+            res.data.data.map(function (row, index) {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "result-row", key: "queryRow" + index },
+                JSON.stringify(row)
+              );
+            })
+          )
+        );
+        _this2.setState({ result: result });
+      }).catch(function (err) {
+        var result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "result" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "result-content" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "result-row" },
+              err.response.data.message
+            )
+          )
+        );
+        _this2.setState({ result: result });
+      });
     }
+  }, {
+    key: "handlePasswordChange",
+    value: function handlePasswordChange(e) {
+      this.setState({ password: e.target.value });
+    }
+  }, {
+    key: "handleTypeChange",
+    value: function handleTypeChange(e) {
+      this.setState({ type: e.target.value });
+    }
+  }, {
+    key: "handleStatementChange",
+    value: function handleStatementChange(e) {
+      this.setState({ statement: e.target.value });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "mysql" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "mysql-field" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "label",
+            { className: "mysql-field__label", name: "password" },
+            "password:",
+            " "
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+            className: "mysql-field__input",
+            type: "text",
+            value: this.state.password,
+            onChange: this.handlePasswordChange,
+            placeholder: "entry your password here..."
+          })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "mysql-field" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "label",
+            { className: "mysql-field__label", name: "query" },
+            "Query:",
+            " "
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "select",
+            {
+              className: "mysql-field__select",
+              name: "query_type",
+              value: this.state.type,
+              onChange: this.handleTypeChange,
+              id: "queryType"
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "option",
+              { value: "select" },
+              "select"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "option",
+              { value: "insert" },
+              "insert"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "option",
+              { value: "update" },
+              "update"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "option",
+              { value: "delete" },
+              "delete"
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "option",
+              { value: "statement" },
+              "statement"
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+            className: "mysql-field__input",
+            type: "query",
+            value: this.state.statement,
+            onChange: this.handleStatementChange,
+            placeholder: "entry your full query here..."
+          })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "button-wrapper" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { onClick: this.applyQuery, className: "submit-button" },
+            "Apply Query"
+          )
+        ),
+        this.state.result
+      );
+    }
+  }]);
 
-    _createClass(MySql, [{
-        key: 'applyQuery',
-        value: function applyQuery() {
-            var _this2 = this;
-
-            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/table/public/api/mysql', { password: this.state.password, type: this.state.type, statement: this.state.statement }).then(function (res) {
-                // this.setState({ result: res.data.data });
-
-                var result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'result' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'result-content' },
-                        res.data.data.map(function (row, index) {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'result-row', key: 'queryRow' + index },
-                                JSON.stringify(row)
-                            );
-                        })
-                    )
-                );
-                _this2.setState({ result: result });
-            }).catch(function (err) {
-                var result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'result' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'result-content' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'result-row' },
-                            err.response.data.message
-                        )
-                    )
-                );
-                _this2.setState({ result: result });
-            });
-        }
-    }, {
-        key: 'handlePasswordChange',
-        value: function handlePasswordChange(e) {
-            this.setState({ password: e.target.value });
-        }
-    }, {
-        key: 'handleTypeChange',
-        value: function handleTypeChange(e) {
-            this.setState({ type: e.target.value });
-        }
-    }, {
-        key: 'handleStatementChange',
-        value: function handleStatementChange(e) {
-            this.setState({ statement: e.target.value });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'mysql' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'mysql-field' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'label',
-                        { className: 'mysql-field__label', name: 'password' },
-                        'password: '
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'mysql-field__input', type: 'text', value: this.state.password, onChange: this.handlePasswordChange, placeholder: 'entry your password here...' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'mysql-field' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'label',
-                        { className: 'mysql-field__label', name: 'query' },
-                        'Query: '
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'select',
-                        { className: 'mysql-field__select', name: 'query_type', value: this.state.type, onChange: this.handleTypeChange, id: 'queryType' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'option',
-                            { value: 'select' },
-                            'select'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'option',
-                            { value: 'insert' },
-                            'insert'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'option',
-                            { value: 'update' },
-                            'update'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'option',
-                            { value: 'delete' },
-                            'delete'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'option',
-                            { value: 'statement' },
-                            'statement'
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'mysql-field__input', type: 'query', value: this.state.statement, onChange: this.handleStatementChange, placeholder: 'entry your full query here...' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'button-wrapper' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { onClick: this.applyQuery, className: 'submit-button' },
-                        'Apply Query'
-                    )
-                ),
-                this.state.result
-            );
-        }
-    }]);
-
-    return MySql;
+  return MySql;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (MySql);
@@ -73788,11 +73824,15 @@ var Setting = function (_Component) {
     value: function componentWillMount() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/table/public/api/init/1").then(function (res) {
-        _this2.setState({ preorderTitleCn: res.data.app_conf.preorder_title });
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/" + this.props.app_conf.sub_folder + "/public/api/init/1").then(function (res) {
+        _this2.setState({
+          preorderTitleCn: res.data.app_conf.preorder_title
+        });
       });
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/table/public/api/init/2").then(function (res) {
-        _this2.setState({ preorderTitleEn: res.data.app_conf.preorder_title });
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/" + this.props.app_conf.sub_folder + "/public/api/init/2").then(function (res) {
+        _this2.setState({
+          preorderTitleEn: res.data.app_conf.preorder_title
+        });
       });
     }
   }, {
@@ -73812,7 +73852,7 @@ var Setting = function (_Component) {
   }, {
     key: "apply",
     value: function apply() {
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/table/public/api/test/" + this.state.theme).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/" + this.props.app_conf.sub_folder + "/public/api/test/" + this.state.theme).then(function (res) {
         alert(res.data.message);
       });
     }
@@ -73831,7 +73871,7 @@ var Setting = function (_Component) {
     value: function applyText() {
       var cn = this.state.preorderTitleCn;
       var en = this.state.preorderTitleEn;
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/table/public/api/language", {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/" + this.props.app_conf.sub_folder + "/public/api/language", {
         preorder_title_cn: cn,
         preorder_title_en: en
       }).then(function (res) {
@@ -73881,7 +73921,7 @@ var Setting = function (_Component) {
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-            src: "/table/public/images/layout/theme_light.jpg",
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/theme_light.jpg",
             className: "theme_pic",
             alt: "light theme"
           })
@@ -73918,7 +73958,7 @@ var Setting = function (_Component) {
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-            src: "/table/public/images/layout/theme_dark.png",
+            src: "/" + this.props.app_conf.sub_folder + "/public/images/layout/theme_dark.png",
             className: "theme_pic",
             alt: "dark theme"
           })

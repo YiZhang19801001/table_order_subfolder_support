@@ -7,7 +7,7 @@ return [
     'perorder' => true,
     // Qr code has / hasn't small icon image in the middle [if choose true, 'QrImageUrl' must have valid value]
     'QrCodeImage' => true,
-    'QrImageUrl' => "/table/public/images/logo.png",
+    'QrImageUrl' => "/table/public/images/logo.png", //**no work any more */
     // default language setting [1] = cn [2] = en
     'default_language' => 1,
 ];

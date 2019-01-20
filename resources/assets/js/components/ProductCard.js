@@ -26,15 +26,21 @@ export default class ProductCard extends Component {
 
   componentDidMount() {
     this.setState({
-      btnPlus: "/table/public/images/layout/btn_plus_red.png"
+      btnPlus: `/${
+        this.props.app_conf.sub_folder
+      }/public/images/layout/btn_plus_red.png`
     });
 
     const flag =
       this.props.product.choices.length > 0 ||
       this.props.product.options.length > 0;
     const buttonImg = flag
-      ? "/table/public/images/layout/btn_sub_grey.png"
-      : "/table/public/images/layout/btn_sub_red.png";
+      ? `/${
+          this.props.app_conf.sub_folder
+        }/public/images/layout/btn_sub_grey.png`
+      : `/${
+          this.props.app_conf.sub_folder
+        }/public/images/layout/btn_sub_red.png`;
 
     this.setState({ btnSub: buttonImg });
     if (this.props.mode !== "menu") {
@@ -147,7 +153,9 @@ export default class ProductCard extends Component {
           }
         >
           <img
-            src={`/table/public/images/items/${this.props.product.image}`}
+            src={`/${this.props.app_conf.sub_folder}/public/images/items/${
+              this.props.product.image
+            }`}
             alt={this.props.product.name}
           />
         </div>

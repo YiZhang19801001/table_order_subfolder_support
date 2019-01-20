@@ -23,12 +23,20 @@ export default class Setting extends Component {
   }
 
   componentWillMount() {
-    Axios.get("/table/public/api/init/1").then(res => {
-      this.setState({ preorderTitleCn: res.data.app_conf.preorder_title });
-    });
-    Axios.get("/table/public/api/init/2").then(res => {
-      this.setState({ preorderTitleEn: res.data.app_conf.preorder_title });
-    });
+    Axios.get(`/${this.props.app_conf.sub_folder}/public/api/init/1`).then(
+      res => {
+        this.setState({
+          preorderTitleCn: res.data.app_conf.preorder_title
+        });
+      }
+    );
+    Axios.get(`/${this.props.app_conf.sub_folder}/public/api/init/2`).then(
+      res => {
+        this.setState({
+          preorderTitleEn: res.data.app_conf.preorder_title
+        });
+      }
+    );
   }
   componentDidMount() {
     if (this.props.app_conf) {
@@ -44,7 +52,9 @@ export default class Setting extends Component {
   }
 
   apply() {
-    Axios.get(`/table/public/api/test/${this.state.theme}`).then(res => {
+    Axios.get(
+      `/${this.props.app_conf.sub_folder}/public/api/test/${this.state.theme}`
+    ).then(res => {
       alert(res.data.message);
     });
   }
@@ -60,7 +70,7 @@ export default class Setting extends Component {
   applyText() {
     const cn = this.state.preorderTitleCn;
     const en = this.state.preorderTitleEn;
-    Axios.post(`/table/public/api/language`, {
+    Axios.post(`/${this.props.app_conf.sub_folder}/public/api/language`, {
       preorder_title_cn: cn,
       preorder_title_en: en
     }).then(res => {
@@ -92,7 +102,9 @@ export default class Setting extends Component {
             </span>
           </div>
           <img
-            src="/table/public/images/layout/theme_light.jpg"
+            src={`/${
+              this.props.app_conf.sub_folder
+            }/public/images/layout/theme_light.jpg`}
             className="theme_pic"
             alt="light theme"
           />
@@ -115,7 +127,9 @@ export default class Setting extends Component {
             </span>
           </div>
           <img
-            src="/table/public/images/layout/theme_dark.png"
+            src={`/${
+              this.props.app_conf.sub_folder
+            }/public/images/layout/theme_dark.png`}
             className="theme_pic"
             alt="dark theme"
           />

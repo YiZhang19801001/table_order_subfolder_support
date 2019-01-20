@@ -38,7 +38,12 @@ export default class Menu extends Component {
               X
             </div>
             <div className="menu-error-icon">
-              <img src="/table/public/images/layout/error.png" alt="" />
+              <img
+                src={`/${
+                  this.props.app_conf.sub_folder
+                }/public/images/layout/error.png`}
+                alt=""
+              />
               <span className="menu-error-title">Sorry!</span>
             </div>
             <div className="menu-error-message">

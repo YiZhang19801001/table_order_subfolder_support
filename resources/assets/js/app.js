@@ -204,13 +204,16 @@ export default class App extends Component {
         1}${today.getDate()}`;
       localStorage.setItem("aupos_time_stamp", date);
     } else if (mode === "table" && isCallApi === true) {
-      Axios.post("/table/public/api/updateorderlist", {
-        action: action,
-        orderItem: item,
-        userId: this.state.userId,
-        orderId: orderId,
-        tableId: tableId
-      });
+      Axios.post(
+        `/${this.state.app_conf.sub_folder}/public/api/updateorderlist`,
+        {
+          action: action,
+          orderItem: item,
+          userId: this.state.userId,
+          orderId: orderId,
+          tableId: tableId
+        }
+      );
     }
   }
 
@@ -220,7 +223,7 @@ export default class App extends Component {
         <Switch>
           <Route
             exact
-            path="/table/public/preorder"
+            path={`/${this.state.app_conf.sub_folder}/public/preorder`}
             render={props => (
               <Order
                 updateShoppingCartList={this.updateShoppingCartList}
@@ -238,7 +241,9 @@ export default class App extends Component {
           />
           <Route
             exact
-            path="/table/public/table/:table/orderid/:orderid"
+            path={`/${
+              this.state.app_conf.sub_folder
+            }/public/table/:table/orderid/:orderid`}
             render={props => (
               <Order
                 updateShoppingCartList={this.updateShoppingCartList}
@@ -264,7 +269,7 @@ export default class App extends Component {
           />
           <Route
             exact
-            path="/table/public/confirm/:mode"
+            path={`/${this.state.app_conf.sub_folder}/public/confirm/:mode`}
             render={props => (
               <Confirm
                 shoppingCartList={this.state.shoppingCartList}
@@ -278,7 +283,9 @@ export default class App extends Component {
           />
           <Route
             exact
-            path="/table/public/confirm/:mode/:tableId/:orderId"
+            path={`/${
+              this.state.app_conf.sub_folder
+            }/public/confirm/:mode/:tableId/:orderId`}
             render={props => (
               <Confirm
                 shoppingCartList={this.state.shoppingCartList}
@@ -295,7 +302,9 @@ export default class App extends Component {
           />
           <Route
             exact
-            path="/table/public/complete/:tableId/:orderId"
+            path={`/${
+              this.state.app_conf.sub_folder
+            }/public/complete/:tableId/:orderId`}
             render={props => (
               <Complete
                 shoppingCartList={this.state.shoppingCartList}
@@ -316,19 +325,21 @@ export default class App extends Component {
           />
           <Route
             exact
-            path="/table/public/mysql"
-            render={props => <MySql {...props} />}
+            path={`/${this.state.app_conf.sub_folder}/public/mysql`}
+            render={props => (
+              <MySql {...props} app_conf={this.state.app_conf} />
+            )}
           />
           <Route
             exact
-            path="/table/public/mycon"
+            path={`/${this.state.app_conf.sub_folder}/public/mycon`}
             render={props => (
               <Setting app_conf={this.state.app_conf} {...props} />
             )}
           />
           <Route
             exact
-            path="/table/public/menu/:message"
+            path={`/${this.state.app_conf.sub_folder}/public/menu/:message`}
             render={props => <Menu app_conf={this.state.app_conf} {...props} />}
           />
           <Route

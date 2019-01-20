@@ -34,7 +34,7 @@ export default class Head extends Component {
         localStorage.getItem("preorderList") &&
         localStorage.getItem("preorderList").length > 0
       ) {
-        Axios.post("/table/public/api/translate", {
+        Axios.post(`/${this.props.app_conf.sub_folder}/public/api/translate`, {
           orderList: JSON.parse(localStorage.getItem("preorderList")),
           lang: localStorage.getItem("aupos_language_code")
         }).then(res => {

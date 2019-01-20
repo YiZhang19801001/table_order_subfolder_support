@@ -10,12 +10,14 @@ return [
 
     // Qr code has / hasn't small icon image in the middle [if choose true, 'QrImageUrl' must have valid value]
     'QrCodeImage' => true,
-    'QrImageUrl' => "/table/public/images/logo.png",
+    'QrImageUrl' => "/table/public/images/logo.png", // *no work anymore*
 
     // default language setting [1] = cn [2] = en
     'default_language' => 1,
     // count how many language is available if equal(1) do not show the language switch button
     'countLanguage' => 1,
+    // subfolder name of the online order project
+    'sub_folder' => 'table',
 
 /** End */
 

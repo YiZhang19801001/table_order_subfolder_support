@@ -93,7 +93,7 @@ export default class Confirm extends Component {
   }
 
   confirmOrder() {
-    Axios.post(`/table/public/api/confirm`, {
+    Axios.post(`/${this.props.app_conf.sub_folder}/public/api/confirm`, {
       orderList: this.state.shoppingCartList,
       order_id: this.props.match.params.orderId,
       store_id: "4",
@@ -111,9 +111,9 @@ export default class Confirm extends Component {
         // todo:: set it to app.state
         this.props.updateHistoryCartList(res.data.historyList);
         this.props.history.push(
-          `/table/public/complete/${this.props.match.params.tableId}/${
-            this.props.match.params.orderId
-          }`
+          `/${this.props.app_conf.sub_folder}/public/complete/${
+            this.props.match.params.tableId
+          }/${this.props.match.params.orderId}`
         );
       })
       .catch(err => {
@@ -147,7 +147,12 @@ export default class Confirm extends Component {
           <div className="confirm-modal">
             <div className="order-confirm-dialog">
               <div className="order-confirm-icon">
-                <img src="/table/public/images/layout/error.png" alt="" />
+                <img
+                  src={`/${
+                    this.props.app_conf.sub_folder
+                  }/public/images/layout/error.png`}
+                  alt=""
+                />
                 <span className="order-confirm-title">
                   Order will be Submit!
                 </span>
@@ -173,7 +178,12 @@ export default class Confirm extends Component {
         ) : null}
         {this.props.match.params.mode === "preorder" ? (
           <div className="confirm__title">
-            <img src="/table/public/images/layout/icon_confirm.png" alt="" />
+            <img
+              src={`/${
+                this.props.app_conf.sub_folder
+              }/public/images/layout/icon_confirm.png`}
+              alt=""
+            />
             <span className="confirm__title-text">
               {this.props.app_conf.preorder_confirm_text}
             </span>
@@ -218,7 +228,7 @@ export default class Confirm extends Component {
             <Link
               to={
                 this.props.mode === "preorder"
-                  ? `/table/public/preorder`
+                  ? `/${this.props.app_conf.sub_folder}/public/preorder`
                   : this.props.originPath
               }
               className="confirm__back-button"

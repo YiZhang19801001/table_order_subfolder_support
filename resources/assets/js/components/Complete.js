@@ -17,7 +17,7 @@ export default class Complete extends Component {
     Echo.channel("tableOrder").listen("ConfirmOrder", e => {
       console.log("listened");
       if (e.orderId == this.props.orderId) {
-        Axios.post(`/table/public/api/initcart`, {
+        Axios.post(`/${this.props.app_conf.sub_folder}/public/api/initcart`, {
           order_id: this.props.orderId,
           cdt: this.props.cdt,
           v: this.props.v,
@@ -49,7 +49,9 @@ export default class Complete extends Component {
         <div className="complete__icon-container">
           <img
             onClick={this.backToOrder}
-            src="/table/public/images/layout/complete_icon.png"
+            src={`/${
+              this.props.app_conf.sub_folder
+            }/public/images/layout/complete_icon.png`}
             alt="done"
           />
           <div className="complete__icon-text">

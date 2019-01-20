@@ -107,7 +107,7 @@ class ShopcartController extends Controller
         $new_product["upc"] = $upc;
         $new_product["description"] = $target_product->description;
 
-        $image_path = '/table/public/images/items/' . $p["image"];
+        $image_path = '/' . \Config::get('app.sub_folder') . '/public/images/items/' . $p["image"];
         $new_product["image"] = "";
         if ($p["image"] === null || !file_exists($_SERVER['DOCUMENT_ROOT'] . $image_path)) {
             $new_product["image"] = 'default_product.jpg';
@@ -162,7 +162,7 @@ class ShopcartController extends Controller
                 }
                 $choices_item["price"] = $choice_to_type["price"];
                 $choices_item["barcode"] = $choice_to_type["barcode"];
-                $image_path = '/table/public/images/items/' . $choice->image;
+                $image_path = '/' . \Config::get('app.sub_folder') . '/public/images/items/' . $choice->image;
                 $choices_item["image"] = "";
                 if ($choice->image === null || !file_exists($_SERVER['DOCUMENT_ROOT'] . $image_path)) {
                     $choices_item["image"] = 'default_taste.png';

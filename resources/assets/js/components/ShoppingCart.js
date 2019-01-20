@@ -38,8 +38,9 @@ export default class ShoppingCart extends Component {
    */
   componentDidMount() {
     this.setState({
-      shoppingCartIconImage:
-        "/table/public/images/layout/shopping_cart_icon.png",
+      shoppingCartIconImage: `/${
+        this.props.app_conf.sub_folder
+      }/public/images/layout/shopping_cart_icon.png`,
       shoppingCartList: this.props.shoppingCartList
     });
 
@@ -54,7 +55,7 @@ export default class ShoppingCart extends Component {
         );
       }
     } else if (this.props.mode === "table") {
-      Axios.post(`/table/public/api/initcart`, {
+      Axios.post(`/${this.props.app_conf.sub_folder}/public/api/initcart`, {
         order_id: this.props.orderId,
         cdt: this.props.cdt,
         v: this.props.v,
@@ -74,13 +75,16 @@ export default class ShoppingCart extends Component {
       Echo.channel("tableOrder").listen("UpdateOrder", e => {
         if (e.orderId == this.props.orderId && e.userId !== this.props.userId) {
           if (e.action == "update") {
-            Axios.post(`/table/public/api/initcart`, {
-              order_id: this.props.orderId,
-              cdt: this.props.cdt,
-              v: this.props.v,
-              table_id: this.props.tableNumber,
-              lang: localStorage.getItem("aupos_language_code")
-            })
+            Axios.post(
+              `/${this.props.app_conf.sub_folder}/public/api/initcart`,
+              {
+                order_id: this.props.orderId,
+                cdt: this.props.cdt,
+                v: this.props.v,
+                table_id: this.props.tableNumber,
+                lang: localStorage.getItem("aupos_language_code")
+              }
+            )
               .then(res => {
                 // this.setState({ shoppingCartList: res.data.pending_list });
                 this.props.updateOrderList(res.data.pendingList);
@@ -227,7 +231,12 @@ export default class ShoppingCart extends Component {
           <div className="confirm-modal">
             <div className="order-confirm-dialog">
               <div className="order-confirm-icon">
-                <img src="/table/public/images/layout/error.png" alt="" />
+                <img
+                  src={`/${
+                    this.props.app_conf.sub_folder
+                  }/public/images/layout/error.png`}
+                  alt=""
+                />
                 <span className="order-confirm-title">
                   Order will be Submit!
                 </span>
@@ -284,10 +293,12 @@ export default class ShoppingCart extends Component {
               <Link
                 to={
                   this.props.mode === "preorder"
-                    ? `/table/public/confirm/${this.props.mode}`
-                    : `/table/public/confirm/${this.props.mode}/${
-                        this.props.tableNumber
-                      }/${this.props.orderId}`
+                    ? `/${this.props.app_conf.sub_folder}/public/confirm/${
+                        this.props.mode
+                      }`
+                    : `/${this.props.app_conf.sub_folder}/public/confirm/${
+                        this.props.mode
+                      }/${this.props.tableNumber}/${this.props.orderId}`
                 }
                 className="order-item-card__confirm-button"
               >
